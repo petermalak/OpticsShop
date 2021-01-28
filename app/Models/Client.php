@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'phone',
+        'telephone',
+        'address',
+        'birth_date'
+    ];
+
+    public function detections()
+    {
+        return $this->hasMany('App\Models\Detection');
+    }
 }
